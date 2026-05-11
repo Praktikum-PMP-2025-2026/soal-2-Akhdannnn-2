@@ -19,7 +19,7 @@ int cycleCheck(int v, int graf[MAX][MAX], int visited[], int stack[], int misi) 
 
     for (int i = 0; i < misi; i++) {
         if (graf[v][i]) {
-            if (not visited[i] && cycleCheck(i, graf, visited, stack, misi)) {
+            if (!visited[i] && cycleCheck(i, graf, visited, stack, misi)) {
                 return 1;
             } else if (stack[i]) {
                 return 1; 
@@ -37,7 +37,7 @@ int hasCycle(int graf[MAX][MAX], int misi) {
     int stack[MAX] = {0};
 
     for (int i = 0; i < misi; i++) {
-        if (not visited[i]) {
+        if (!visited[i]) {
             if (cycleCheck(i, graf, visited, stack, misi)) {
                 return 1;
             }
